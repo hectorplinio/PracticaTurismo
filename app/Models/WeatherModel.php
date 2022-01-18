@@ -36,11 +36,10 @@ class WeatherModel extends Model
     // protected $afterFind      = [];
     // protected $beforeDelete   = [];
     // protected $afterDelete    = [];
-    public function findWeather($id = null){
-        if (is_null($id)){
-            return $this->findAll();
-        }
-        return $this -> where(['id' => $id])
-                     ->first();
+    public function findWeather()
+    {
+        $total = $this->findAll();
+        $x=count($total);
+        return $total[$x-1];
     }
 }

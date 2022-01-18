@@ -10,8 +10,8 @@ class ReviewsSeeder extends Seeder
 {
     public function run()
     {
-        $this->db->table('Reviews')->where("id > " ,0)->delete();
-        $this->db->query("ALTER TABLE Reviews AUTO_INCREMENT = 1");
+        // $this->db->table('Reviews')->where("id > " ,0)->delete();
+        // $this->db->query("ALTER TABLE Reviews AUTO_INCREMENT = 1");
         $faker = Factory::create();
         $ReviewsBuilder = $this->db->table('Reviews');
 
