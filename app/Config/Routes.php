@@ -58,6 +58,9 @@ $routes->group('rest', function ($routes){
     $routes->get('reviewsRestaurant/(:any)', 'ReviewsController::reviewsRest/$1' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('reviewsId/', 'ReviewsController::reviewsIdRest/' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('reviewsId/(:any)', 'ReviewsController::reviewsIdRest/$1' , ['namespace' => REST_NAMESPACE ]);
+    $routes->get('reviewsRestaurantEmail/', 'ReviewsController::reviewsRestaurantEmailRest/' , ['namespace' => REST_NAMESPACE ]);
+    $routes->get('reviewsRestaurantEmail/(:any)/(:any)', 'ReviewsController::reviewsRestaurantEmailRest/$1/$2' , ['namespace' => REST_NAMESPACE ]);
+    $routes->post('reviewsRestaurant/', 'ReviewsController::reviewsUpdateRest/' , ['namespace' => REST_NAMESPACE ]);
 
     // $routes->delete('categories', 'CategoriesController::categoriesDeleteRest' , ['namespace' => REST_NAMESPACE ]);
     // $routes->post('categories', 'CategoriesController::categoriesUpdateRest' , ['namespace' => REST_NAMESPACE ]);    

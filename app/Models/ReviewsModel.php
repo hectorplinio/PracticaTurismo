@@ -43,8 +43,20 @@ class ReviewsModel extends Model
     }
     public function findReviewsId($id = null){
         
-        return $this -> where(['id' => $id])
+        return $this ->where(['id' => $id])
                      ->first();
     }
+    public function findRestaurantEmail($id = null,$email = null){
+        
+        $condition = "email= '$email' AND restaurant_id ='$id'";
+        return $this -> where($condition)
+                     ->findAll();
+    }
+    public function AVG($id = null){
+        $condition = "SELECT AVG(punctuation) WHERE restaurant_id ='$id'";
+        return $this ->select($condition)
+                    ->findAll();
+    }
+    
     
 }
