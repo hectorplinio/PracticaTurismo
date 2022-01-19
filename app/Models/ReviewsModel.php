@@ -52,11 +52,14 @@ class ReviewsModel extends Model
         return $this -> where($condition)
                      ->findAll();
     }
-    public function AVG($id = null){
-        $condition = "SELECT AVG(punctuation) WHERE restaurant_id ='$id'";
-        return $this ->select($condition)
-                    ->findAll();
+    public function AvgRestaurant($id = null){
+        return $this ->where(["restaurant_id" => $id])
+                    ->selectAvg('punctuation')
+                    ->first();
     }
-    
+    public function findReviewsDelete($id = null){
+        return $this -> where(['id' => $id])
+                     ->delete();
+    }
     
 }

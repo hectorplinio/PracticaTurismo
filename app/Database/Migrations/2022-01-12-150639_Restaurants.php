@@ -37,7 +37,7 @@ class Restaurants extends Migration
             ],
             'reviewAverage'          => [
                 'type'           => 'DECIMAL',
-                'constraint'     => '65',
+                'constraint'     => '50,5',
                 'default'       => 0,
             ],
             'numReviews'          => [
