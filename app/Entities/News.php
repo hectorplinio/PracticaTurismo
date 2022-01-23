@@ -21,4 +21,7 @@ class News extends Entity
         'deleted_at'
     ];
     protected $casts   = [];
+    public function getDateInputFormat($date){
+        return $this->attributes['date'] = date('Y-m-d H:i:s', strtotime($date));
+    }
 }

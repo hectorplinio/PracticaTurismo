@@ -48,4 +48,9 @@ class GasStationsModel extends Model
         return $this -> where(['id' => $id])
                      ->delete();
     }
+    public function findGasStationsIdees($idees = null){
+        
+        return $this -> where(['idees' => $idees])
+                     ->first();
+    }
 }

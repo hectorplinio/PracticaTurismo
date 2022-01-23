@@ -13,6 +13,7 @@ class Restaurants extends Entity
         "address" => null,
         "latitude" => null,
         "longitude" => null,
+        "image_url" => null,
         "reviewAverage" => null,
         "numReviews" => null,
     ];

@@ -43,4 +43,8 @@ class NewsModel extends Model
         return $this -> where(['id' => $id])
                      ->first();
     }
+    public function findGuid($guid = null){
+        return $this -> where(['guid' => $guid])
+                     ->first();
+    }
 }

@@ -24,6 +24,8 @@ $routes->set404Override();
 $routes->setAutoRoute(false);
 
 if(!defined('REST_NAMESPACE'))define ('REST_NAMESPACE', 'App\Controllers\Rest');
+if(!defined('COMMAND_NAMESPACE'))define ('COMMAND_NAMESPACE', 'App\Controllers\Command');
+
 /*
  * --------------------------------------------------------------------
  * Route Definitions
@@ -63,8 +65,13 @@ $routes->group('rest', function ($routes){
     $routes->get('reviewsId/(:any)', 'ReviewsController::reviewsIdRest/$1' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('reviewsRestaurantEmail/', 'ReviewsController::reviewsRestaurantEmailRest/' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('reviewsRestaurantEmail/(:any)/(:any)', 'ReviewsController::reviewsRestaurantEmailRest/$1/$2' , ['namespace' => REST_NAMESPACE ]);
-   
-
+});
+    //--COMMANDS--//
+    $routes->group('commands', function ($routes){
+        $routes->cli('commandGas', 'GasStationsCommand::gasStations' , ['namespace' => COMMAND_NAMESPACE ]);
+        $routes->cli('commandWeather', 'WeatherCommand::weatherCommand' , ['namespace' => COMMAND_NAMESPACE ]);
+        $routes->cli('commandNews', 'NewsCommand::newsCommand' , ['namespace' => COMMAND_NAMESPACE ]);
+        $routes->cli('commandVideos', 'VideosCommand::videosCommand' , ['namespace' => COMMAND_NAMESPACE ]);
 
     // $routes->delete('categories', 'CategoriesController::categoriesDeleteRest' , ['namespace' => REST_NAMESPACE ]);
     // $routes->post('categories', 'CategoriesController::categoriesUpdateRest' , ['namespace' => REST_NAMESPACE ]);    
