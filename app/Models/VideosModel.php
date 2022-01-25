@@ -43,4 +43,11 @@ class VideosModel extends Model
         return $this -> where(['id' => $id])
                      ->first();
     }
+    public function getDateInputFormat($date){
+        return date('Y-m-d H:i:s', strtotime($date));
+    }
+    public function findVideosGuid($guid = null){
+        return $this -> where(['guid' => $guid])
+                     ->first();
+    }
 }
