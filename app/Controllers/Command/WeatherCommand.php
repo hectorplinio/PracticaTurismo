@@ -37,6 +37,14 @@ class WeatherCommand extends BaseController
         $x =0;
 
         $data=$result['weather'];
+        $dataCelsius=$result['main'];
+        var_dump($dataCelsius["temp"]);
+        $cel = intval($dataCelsius["temp"]);
+        $cel = $cel - 273;
+        var_dump($cel);
+        foreach($dataCelsius as $c){
+            CLI::write($c);
+        }
         foreach($data as $d){
             CLI::write($d['main']);
             $main =$d['main'];
@@ -46,7 +54,8 @@ class WeatherCommand extends BaseController
             $data=array(
                 "main" => $main,
                 "description"=>$description,
-                "icon" => $icon
+                "icon" => $icon,
+                "celsius" => $cel
             );
             $weather->save($data);
        curl_close($curl);

@@ -13,6 +13,8 @@ class News extends Entity
         "pubDate" => null,
         "url" => null,
         "guid" => null,
+        "img_url" => null
+
     ];
     protected $datamap = [];
     protected $dates   = [

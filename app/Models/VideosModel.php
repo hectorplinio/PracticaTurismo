@@ -12,7 +12,7 @@ class VideosModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = Videos::class;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid"];
+    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid" ,"img_url"];
 
     // Dates
     protected $useTimestamps = true;

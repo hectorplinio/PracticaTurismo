@@ -35,6 +35,10 @@ class Videos extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => '250',
             ],
+            'img_url'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '250',
+            ],
             'created_at'       => [
                 'type'           => 'DATETIME',
                 'null'     => false,

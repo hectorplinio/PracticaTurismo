@@ -11,6 +11,7 @@ class Weather extends Entity
         "main" => null,
         "description" => null,
         "icon" => null,
+        "celsius" => null
     ];
     protected $datamap = [];
     protected $dates   = [

@@ -12,7 +12,7 @@ class NewsModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = News::class;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid"];
+    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid", "img_url"];
 
     // Dates
     protected $useTimestamps = true;

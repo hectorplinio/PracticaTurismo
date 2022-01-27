@@ -26,6 +26,9 @@ class NewsCommand extends BaseController
         $items = $data->channel->item;
         $x=0;
         foreach($items as $item){
+            $media= $item->children('http://search.yahoo.com/mrss/');
+            $img = $media->content->attributes()->url;
+            CLI::write($img);
             $x=$x+1;
             $new = new NewsModel();
             $title = $item->title;
@@ -46,6 +49,7 @@ class NewsCommand extends BaseController
                     "pubDate" => $time,
                     "guid" => $guid,
                     "url" => $link,
+                    "img_url" => $img
                 );
                 $new->save($data);
                 CLI::write("Datos guardados con exito");
@@ -56,6 +60,7 @@ class NewsCommand extends BaseController
                     "pubDate" => $time,
                     "guid" => $guid,
                     "url" => $link,
+                    "img_url" => $img
                 );
                 $new->insert($data);
                 CLI::write("Datos creados con exito");

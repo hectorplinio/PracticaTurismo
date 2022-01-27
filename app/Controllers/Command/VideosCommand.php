@@ -29,12 +29,13 @@ class VideosCommand extends BaseController
             $video = new VideosModel();
             $title = $media->group->title;
             $description = $media->group->description;
+            $img = $media->group->thumbnail->attributes()->url;
+            CLI::write($img);
             $pubDate = $item->published;
             $time=$video->getDateInputFormat($pubDate);
             $url = $item->link->attributes()->href;
             $guid = $item->id;
             $guid= str_replace("yt:video:", "",$guid);
-            CLI::write($guid);
             $videoExist = $video->findVideosGuid($guid);
             if ($videoExist){
                 $id = $videoExist->id;
@@ -45,6 +46,7 @@ class VideosCommand extends BaseController
                             "pubDate" => $time,
                             "url" => $url,
                             "guid" => $guid,
+                            "img_url" => $img,
                         );
                 $video->save($data);
                 CLI::write("Datos guardados con exito");  
@@ -55,6 +57,7 @@ class VideosCommand extends BaseController
                     "pubDate" => $time,
                     "url" => $url,
                     "guid" => $guid,
+                    "img_url" => $img,
                 );
                 $video->save($data);
                 CLI::write("Datos creados con exito");
