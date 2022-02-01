@@ -25,6 +25,8 @@ $routes->setAutoRoute(false);
 
 if(!defined('REST_NAMESPACE'))define ('REST_NAMESPACE', 'App\Controllers\Rest');
 if(!defined('COMMAND_NAMESPACE'))define ('COMMAND_NAMESPACE', 'App\Controllers\Command');
+if(!defined('ADMIN_NAMESPACE'))define ('ADMIN_NAMESPACE', 'App\Controllers\Administration');
+if(!defined('PUBLIC_NAMESPACE'))define ('PUBLIC_NAMESPACE', 'App\Controllers\PublicSection');
 
 /*
  * --------------------------------------------------------------------
@@ -34,8 +36,13 @@ if(!defined('COMMAND_NAMESPACE'))define ('COMMAND_NAMESPACE', 'App\Controllers\C
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->group('rest', function ($routes){
+$routes->group('', function ($routes){
+    $routes->get('/', 'LoginController::login', ['as' => 'login_page','namespace' => PUBLIC_NAMESPACE]);
+    $routes->get('/home', 'HomeController::home', ['as' => 'home_page', 'namespace' => PUBLIC_NAMESPACE]);
+    $routes->get('/pruebaAjax', 'LoginController::pruebaAjax', ['as' => 'prueba_ajax','namespace' => PUBLIC_NAMESPACE]);
+    $routes->post('/formulario', 'LoginController::formulario', ['as' => 'formulario','namespace' => PUBLIC_NAMESPACE]);
+    
+});$routes->group('rest', function ($routes){
     //--RESTAURANTS--//
     $routes->get('restaurants', 'RestaurantsController::restaurantsRest' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('restaurants/(:any)', 'RestaurantsController::restaurantsRest/$1' , ['namespace' => REST_NAMESPACE ]);

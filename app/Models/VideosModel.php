@@ -38,7 +38,8 @@ class VideosModel extends Model
     // protected $afterDelete    = [];
     public function findVideos($id = null){
         if (is_null($id)){
-            return $this->findAll();
+            return $this->orderBy('pubDate','desc')
+                        ->findAll();
         }
         return $this -> where(['id' => $id])
                      ->first();
