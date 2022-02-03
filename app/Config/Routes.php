@@ -79,6 +79,7 @@ $routes->group('', function ($routes){
         $routes->cli('commandWeather', 'WeatherCommand::weatherCommand' , ['namespace' => COMMAND_NAMESPACE ]);
         $routes->cli('commandNews', 'NewsCommand::newsCommand' , ['namespace' => COMMAND_NAMESPACE ]);
         $routes->cli('commandVideos', 'VideosCommand::videosCommand' , ['namespace' => COMMAND_NAMESPACE ]);
+        $routes->cli('commandRestaurant', 'RestaurantCommand::restaurantCommand' , ['namespace' => COMMAND_NAMESPACE ]);
 
     // $routes->delete('categories', 'CategoriesController::categoriesDeleteRest' , ['namespace' => REST_NAMESPACE ]);
     // $routes->post('categories', 'CategoriesController::categoriesUpdateRest' , ['namespace' => REST_NAMESPACE ]);    
