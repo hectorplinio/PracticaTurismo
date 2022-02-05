@@ -43,4 +43,8 @@ class RestaurantsModel extends Model
         return $this -> where(['id' => $id])
                      ->first();
     }
+    public function AVG($id = null){
+        $condition = "SELECT AVG(punctuation) WHERE restaurant_id ='$id'";
+        return $this ->where($condition);
+    }
 }
