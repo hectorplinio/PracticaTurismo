@@ -157,31 +157,13 @@ class ReviewsController extends ResourceController
         
     }
     public function reviewsDeleteRest() {
-        // try{
-        //     $request=$this->request;
-        //     $body=$request->getJSON();
-        //     $id = $body->id;
-        //     $review = new ReviewsModel();
-        //     if (strcmp($id,"")!==0){
-        //         return $this-> respond("",400, "You dont pass any id");
-        //     }
-        //     $reviews = $review->findReviewsDelete($id);
-        //     if ($reviews){
-        //         return $this-> respond("",200, "Review deleted correctly");
-        //     }else{
-        //         return $this-> respond("",404,"Categoria no se ha podido eliminado");
-
-        //     }
-        // }catch(\Exception $e){
-        //     return $this->respond($e->getMessage(),500,"Error del servidor");
-
-        // }
+        
         try{
             $request=$this->request;
             $body=$request->getJSON();
             $reviewM = new ReviewsModel();
             if(isset($body->id)){
-                $review = $reviewM->findReviews($body->id);
+                $review = $reviewM->findReviewsId($body->id);
                 if ($review){
                     $review = $reviewM->findReviewsDelete($body->id);
                     return $this->respond("", 200, $body->id." successfully deleted.");

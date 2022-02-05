@@ -39,7 +39,7 @@ class NewsModel extends Model
     public function findNews($id = null){
         if (is_null($id)){
             return $this->orderBy('pubDate','desc')
-                        ->findAll();
+                        ->findAll(20);
         }
         return $this -> where(['id' => $id])
                      ->first();
