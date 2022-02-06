@@ -12,7 +12,7 @@ class WeatherModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = Weather::class;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ["main", "description", "icon"];
+    protected $allowedFields    = ["main", "description", "icon", "celsius"];
 
     // Dates
     protected $useTimestamps = true;

@@ -43,6 +43,13 @@ class RestaurantsModel extends Model
         return $this -> where(['id' => $id])
                      ->first();
     }
+    public function findRestaurantsName($name = null){
+        if (is_null($name)){
+            return $this->findAll();
+        }
+        return $this -> where(['name' => $name])
+                     ->first();
+    }
     public function AVG($id = null){
         $condition = "SELECT AVG(punctuation) WHERE restaurant_id ='$id'";
         return $this ->where($condition);

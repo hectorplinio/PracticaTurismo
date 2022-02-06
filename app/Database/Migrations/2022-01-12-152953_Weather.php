@@ -27,6 +27,10 @@ class Weather extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => '250',
             ],
+            'celsius'       => [
+                'type'           => 'INT',
+                'constraint'     => '5',
+            ],
             'created_at'       => [
                 'type'           => 'DATETIME',
                 'null'     => false,

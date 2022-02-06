@@ -35,9 +35,13 @@ class Restaurants extends Migration
                 'type'       => 'DECIMAL',
                 'constraint' => '50,15',
             ],
+            'image_url'       => [
+                'type'           => 'VARCHAR',
+                'constraint'     => '250',
+            ],
             'reviewAverage'          => [
                 'type'           => 'DECIMAL',
-                'constraint'     => '50,5',
+                'constraint'     => '50,2',
                 'default'       => 0,
             ],
             'numReviews'          => [

@@ -39,6 +39,7 @@ class ReviewsModel extends Model
     public function findReviews($id = null){
         
         return $this -> where(['restaurant_id' => $id])
+                    ->orderBy('created_at','desc')
                      ->findAll();
     }
     public function findReviewsId($id = null){
@@ -50,6 +51,7 @@ class ReviewsModel extends Model
         
         $condition = "email= '$email' AND restaurant_id ='$id'";
         return $this -> where($condition)
+                    ->orderBy('pubDate','desc')
                      ->findAll();
     }
     public function AvgRestaurant($id = null){

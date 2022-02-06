@@ -13,6 +13,8 @@ class News extends Entity
         "pubDate" => null,
         "url" => null,
         "guid" => null,
+        "img_url" => null
+
     ];
     protected $datamap = [];
     protected $dates   = [
@@ -21,4 +23,7 @@ class News extends Entity
         'deleted_at'
     ];
     protected $casts   = [];
+    public function getDateInputFormat($date){
+        return $this->attributes['date'] = date('Y-m-d H:i:s', strtotime($date));
+    }
 }

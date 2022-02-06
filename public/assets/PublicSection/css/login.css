@@ -1,0 +1,29 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    background-color: #F4F4F4;
+    width: 45em;
+    height: 39em;
+}
+img{
+    width: 90%;
+    padding: 1em;
+}
+.titulo{
+    font-size: 1.5em;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    margin: 0 auto;
+}
+#boton{
+    margin-top: 0.5em;
+}
+#fecha{
+    padding: 3em;
+    color: gray;
+}

@@ -20,6 +20,7 @@ class RestaurantsSeeder extends Seeder
                 "address" => "Avenida de Castilla-la Mancha, 3",
                 "latitude" =>  "40.070780791578954",
                 "longitude" => " -2.1368330843959074",
+                "image_url" => "https://10619-2.s.cdn12.com/rests/original/345_174890661.jpg",
                 "reviewAverage" => "",
                 "numReviews" => "",
                 "created_at" => new Time('now')
@@ -31,6 +32,7 @@ class RestaurantsSeeder extends Seeder
                 "address" => "Calle San Francisco, 6",
                 "latitude" =>  "40.07134189687638",
                 "longitude" => "-2.135264974003179",
+                "image_url" => "https://media-cdn.tripadvisor.com/media/photo-s/0f/16/97/e6/fachada.jpg",
                 "reviewAverage" => "",
                 "numReviews" => "",
                 "created_at" => new Time('now')

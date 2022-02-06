@@ -12,7 +12,7 @@ class VideosModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = Videos::class;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid"];
+    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid" ,"img_url"];
 
     // Dates
     protected $useTimestamps = true;
@@ -38,9 +38,17 @@ class VideosModel extends Model
     // protected $afterDelete    = [];
     public function findVideos($id = null){
         if (is_null($id)){
-            return $this->findAll();
+            return $this->orderBy('pubDate','desc')
+                        ->findAll();
         }
         return $this -> where(['id' => $id])
+                     ->first();
+    }
+    public function getDateInputFormat($date){
+        return date('Y-m-d H:i:s', strtotime($date));
+    }
+    public function findVideosGuid($guid = null){
+        return $this -> where(['guid' => $guid])
                      ->first();
     }
 }

@@ -12,7 +12,7 @@ class NewsModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = News::class;
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid"];
+    protected $allowedFields    = ["title", "description", "pubDate", "url", "guid", "img_url"];
 
     // Dates
     protected $useTimestamps = true;
@@ -38,9 +38,14 @@ class NewsModel extends Model
     // protected $afterDelete    = [];
     public function findNews($id = null){
         if (is_null($id)){
-            return $this->findAll();
+            return $this->orderBy('pubDate','desc')
+                        ->findAll(20);
         }
         return $this -> where(['id' => $id])
+                     ->first();
+    }
+    public function findGuid($guid = null){
+        return $this -> where(['guid' => $guid])
                      ->first();
     }
 }

@@ -1,0 +1,36 @@
+.contenedor{
+    text-align: center;
+    background-color: #F4F4F4;
+    padding: 2em;
+    display: grid;
+}
+.titulos{
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+img{
+    width: 100%;
+}
+.festival{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1em;
+    margin: 1.5em;
+}
+.tarjeta{
+    width: 100%;
+    text-align: initial;
+    background-color: white;
+}
+.imagen{
+    width: 100%;
+    height: 33%;
+}
+.titulo{
+    text-align: initial;
+    margin: 0.5em;
+}
+.info{
+    padding: 0.5em;
+}
