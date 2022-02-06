@@ -25,7 +25,7 @@ class GasStationsController extends ResourceController
             } else if ($id==null){
                 $gasStations = $this->model->findGasStations();
                 
-                return $this->respond($gasStations,200,"GasStations successfully found.");
+                return $this->respond($gasStations,200,"All GasStations successfully found.");
             }
         }catch(\Exception $e){
             return $this->respond($e->getMessage(),500,"Internal Error");

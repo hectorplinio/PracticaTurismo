@@ -23,14 +23,12 @@ class VideosCommand extends BaseController
         $response = file_get_contents("https://www.youtube.com/feeds/videos.xml?channel_id=UChGnJ7SlRIfemRBZSniIvtg", false, stream_context_create($arrContextOptions));
         $data = new SimpleXMLElement($response);
         $items = $data->entry;
-        $x=0;
         foreach($items as $item){
             $media= $item->children('http://search.yahoo.com/mrss/');
             $video = new VideosModel();
             $title = $media->group->title;
             $description = $media->group->description;
             $img = $media->group->thumbnail->attributes()->url;
-            CLI::write($img);
             $pubDate = $item->published;
             $time=$video->getDateInputFormat($pubDate);
             $url = $item->link->attributes()->href;
@@ -49,7 +47,7 @@ class VideosCommand extends BaseController
                             "img_url" => $img,
                         );
                 $video->save($data);
-                CLI::write("Datos guardados con exito");  
+                CLI::write("Data of videos save sucessfull");
             }else{
                 $data= array(
                     "title" => $title,
@@ -60,7 +58,7 @@ class VideosCommand extends BaseController
                     "img_url" => $img,
                 );
                 $video->save($data);
-                CLI::write("Datos creados con exito");
+                CLI::write("Data of videos created sucessfull");
             }
         }
     }

@@ -31,22 +31,12 @@ class WeatherCommand extends BaseController
              
         /* make request */
         $result = curl_exec($curl);
-        
-
         $result = json_decode($result, true);
-        $x =0;
-
         $data=$result['weather'];
         $dataCelsius=$result['main'];
-        var_dump($dataCelsius["temp"]);
         $cel = intval($dataCelsius["temp"]);
         $cel = $cel - 273;
-        var_dump($cel);
-        foreach($dataCelsius as $c){
-            CLI::write($c);
-        }
         foreach($data as $d){
-            CLI::write($d['main']);
             $main =$d['main'];
             $description = $d['description'];
             $icon=$d['icon'];
@@ -57,6 +47,7 @@ class WeatherCommand extends BaseController
                 "icon" => $icon,
                 "celsius" => $cel
             );
+            CLI::write("Data of weather save sucessfull");
             $weather->save($data);
        curl_close($curl);
    }

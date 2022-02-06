@@ -31,7 +31,6 @@ class RestaurantCommand extends BaseController
         
 
         $result = json_decode($result, false);
-        $x =0;
         $data=$result->features;
        foreach($data as $d){
            $address = $d->properties->address;
@@ -54,7 +53,7 @@ class RestaurantCommand extends BaseController
                     "image_url" => "https://media-cdn.tripadvisor.com/media/photo-s/17/75/3f/d1/restaurant-in-valkenswaard.jpg"
                     );
                     $restaurant->save($data2);
-                    CLI::write("Datos guardados con exito");
+                    CLI::write("Data of restaurant save sucessfull");
 
             }else{
                 $data2= array(
@@ -66,10 +65,9 @@ class RestaurantCommand extends BaseController
                     "image_url" => "https://www.gentleman.excelsior.com.mx/wp-content/uploads/2019/03/G-BARRAS-01-1-1080x675.jpg"
                     );
                     $restaurant->save($data2);
-                    CLI::write("Datos guardados con exito");
+                    CLI::write("Data of restaurant created sucessfull");
             }
 
-           CLI::write($description);
 
     }
     curl_close($curl);

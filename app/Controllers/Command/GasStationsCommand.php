@@ -34,7 +34,6 @@ class GasStationsCommand extends BaseController
          
  
          $result = json_decode($result, true);
-         $x =0;
          $data=$result['ListaEESSPrecio'];
         foreach($data as $d){
             $a = $d['Localidad'];
@@ -57,7 +56,7 @@ class GasStationsCommand extends BaseController
                         "idees" => $idees,
                     );
                     $gasStation->save($data2);
-                    CLI::write("Datos guardados con exito");
+                    CLI::write("Data of gasStations save sucessfull");
                 }else{
                     $data2= array(
                         "label" => $label,
@@ -67,7 +66,7 @@ class GasStationsCommand extends BaseController
                         "idees" => $idees,
                     );
                     $gasStation->insert($data2);
-                    CLI::write("Datos creados con exito");
+                    CLI::write("Data of gasStations created sucessfull");
                 }      
             }
         }

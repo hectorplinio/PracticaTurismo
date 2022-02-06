@@ -27,7 +27,7 @@ class RestaurantsController extends ResourceController
             } else if ($id==null){
                 $restaurants = $this->model->findRestaurants();
                 
-                return $this->respond($restaurants,200,"Restaurants successfully found.");
+                return $this->respond($restaurants,200,"All Restaurants successfully found.");
             }
         }catch(\Exception $e){
             return $this->respond($e->getMessage(),500,"Internal Error");

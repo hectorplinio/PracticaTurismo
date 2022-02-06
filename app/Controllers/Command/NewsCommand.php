@@ -22,13 +22,11 @@ class NewsCommand extends BaseController
         $response = file_get_contents("https://www.cuencanews.es/rss/ultimasNoticias/", false, stream_context_create($arrContextOptions));
         $data = new SimpleXMLElement($response);
         //Asi se imprime el objeto con todo lo que tiene dentro
-        //CLI::write($response);
         $items = $data->channel->item;
         $x=0;
         foreach($items as $item){
             $media= $item->children('http://search.yahoo.com/mrss/');
             $img = $media->content->attributes()->url;
-            CLI::write($img);
             $x=$x+1;
             $new = new NewsModel();
             $title = $item->title;
@@ -36,7 +34,6 @@ class NewsCommand extends BaseController
             $pubDate = $item->pubDate;
             $newTime=new News();
             $time=$newTime->getDateInputFormat($pubDate);
-            CLI::write($time);
             $guid = $item->guid;
             $link = $item->link;
             $news = $new->findGuid($guid);
@@ -52,7 +49,7 @@ class NewsCommand extends BaseController
                     "img_url" => $img
                 );
                 $new->save($data);
-                CLI::write("Datos guardados con exito");
+                CLI::write("Data of news save sucessfull");
             }else{
                 $data= array(
                     "title" => $title,
@@ -63,7 +60,7 @@ class NewsCommand extends BaseController
                     "img_url" => $img
                 );
                 $new->insert($data);
-                CLI::write("Datos creados con exito");
+                CLI::write("Data of news created sucessfull");
             }
         }
     }
