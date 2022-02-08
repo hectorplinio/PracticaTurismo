@@ -55,7 +55,7 @@ $routes->group('', function ($routes){
     $routes->get('weather', 'WeatherController::weatherRest' , ['namespace' => REST_NAMESPACE ]);
     // $routes->get('weather/(:any)', 'WeatherController::weatherRest/$1' , ['namespace' => REST_NAMESPACE ]);
     
-    //--NEWS--//
+    //--NEWS--//-
     $routes->get('news', 'NewsController::newsRest' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('news/(:any)', 'NewsController::newsRest/$1' , ['namespace' => REST_NAMESPACE ]);
 
@@ -66,7 +66,7 @@ $routes->group('', function ($routes){
     $routes->get('reviewsRestaurant/', 'ReviewsController::reviewsRest/' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('reviewsRestaurant/(:any)', 'ReviewsController::reviewsRest/$1' , ['namespace' => REST_NAMESPACE ]);
     $routes->post('reviewsRestaurant/', 'ReviewsController::reviewsUpdateRest/' , ['namespace' => REST_NAMESPACE ]);
-    $routes->delete('reviewsRestaurant/', 'ReviewsController::reviewsDeleteRest/' , ['namespace' => REST_NAMESPACE ]);
+    $routes->delete('reviewsDeleteRestaurant/', 'ReviewsController::reviewsDeleteRest/' , ['namespace' => REST_NAMESPACE ]);
 
     $routes->get('reviewsId/', 'ReviewsController::reviewsIdRest/' , ['namespace' => REST_NAMESPACE ]);
     $routes->get('reviewsId/(:any)', 'ReviewsController::reviewsIdRest/$1' , ['namespace' => REST_NAMESPACE ]);
@@ -80,9 +80,7 @@ $routes->group('', function ($routes){
         $routes->cli('commandNews', 'NewsCommand::newsCommand' , ['namespace' => COMMAND_NAMESPACE ]);
         $routes->cli('commandVideos', 'VideosCommand::videosCommand' , ['namespace' => COMMAND_NAMESPACE ]);
         $routes->cli('commandRestaurant', 'RestaurantCommand::restaurantCommand' , ['namespace' => COMMAND_NAMESPACE ]);
-
-    // $routes->delete('categories', 'CategoriesController::categoriesDeleteRest' , ['namespace' => REST_NAMESPACE ]);
-    // $routes->post('categories', 'CategoriesController::categoriesUpdateRest' , ['namespace' => REST_NAMESPACE ]);    
+        $routes->cli('commandBar', 'RestaurantCommand::barCommand' , ['namespace' => COMMAND_NAMESPACE ]);
 });
 /*
  * --------------------------------------------------------------------

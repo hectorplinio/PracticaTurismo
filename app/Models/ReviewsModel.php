@@ -51,7 +51,7 @@ class ReviewsModel extends Model
         
         $condition = "email= '$email' AND restaurant_id ='$id'";
         return $this -> where($condition)
-                    ->orderBy('pubDate','desc')
+                    ->orderBy('created_at','desc')
                      ->findAll();
     }
     public function AvgRestaurant($id = null){
